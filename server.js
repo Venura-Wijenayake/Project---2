@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 // middleware for generating sessions and signing them with .env SECRET
 app.use(session({
-  secret: process.env.SECRET,
+  secret: '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',
   resave: false,
   saveUninitialized: true
 }))
@@ -60,5 +60,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

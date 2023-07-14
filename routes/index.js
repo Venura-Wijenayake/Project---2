@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // This app has no "home" page, but your projects should 😀
 router.get('/', function(req, res, next) {
-  res.render("index")
+  res.render("index", {title: "Rogue Trader!"})
 });
 
 // Google OAuth Route login route
