@@ -1,5 +1,3 @@
-// config/passport.js
-
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');
@@ -11,9 +9,9 @@ passport.use(new GoogleStrategy(
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK
   },
-  // The verify callback function
-  // Let's use async/await!
-  // because requesting to an API is an async action
+  // The verify callback function...
+  // Marking a function as an async function allows us
+  // to consume promises using the await keyword
   async function(accessToken, refreshToken, profile, cb) {
     // When using async/await  we use a
     // try/catch block to handle an error
@@ -41,5 +39,6 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(async function(userId, cb) {
+  // It's nice to be able to use await in-line!
   cb(null, await User.findById(userId));
 });
