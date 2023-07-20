@@ -10,10 +10,14 @@ var methodOverride = require('method-override');
 require('dotenv').config();
 // connect to the database with AFTER the config vars are processed
 require('./config/database');
-
 require('./config/passport');
 
-const indexRouter = require('./routes/index');
+const homepageRouter = require('./routes/homepage');
+const characterRouter = require('./routes/characters');
+const itemsRouter = require('./routes/items');
+const locationRouter = require('./routes/locations');
+const adventurelogRouter = require('./routes/adventurelogs');
+const eventRouter = require('./routes/events');
 
 
 var app = express();
@@ -44,7 +48,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/', indexRouter);
+app.use('/', homepageRouter);
+app.use('/characters', characterRouter);
+app.use('/items', itemsRouter);
+app.use('/locations', locationRouter);
+app.use('/adventurelogs', adventurelogRouter);
+app.use('/events', eventRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

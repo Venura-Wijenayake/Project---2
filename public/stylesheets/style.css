@@ -1,33 +1,215 @@
-img {
-    width: 34px;
-    object-fit: contain;
+/* Reset default styles and apply global styles */
+body {
+  font-family: 'Libre Caslon Text', serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/images/space2.jpg"); /* Replace with the actual path to your background image */
+  background-size: cover; /* Adjust as needed to fit the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center center; /* Center the background image */
+}
+
+body > nav {
+  grid-area: nav;
+  background: linear-gradient(132deg, rgba(184, 230, 242, 1) 0%, rgba(188, 185,254, 1) 50%, rgba(92,115,121, 1) 100%);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+  border-bottom: 2px solid #000000;
+}
+
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: darkgrey;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+/* Header styles */
+header {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Navigation styles */
+nav a {
+  /* ... Your existing styles ... */
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  /* Remove the existing border */
+  box-shadow: 3px 8px 23px 0px rgba(0, 0, 0, 0.49); /* Add this line for box-shadow effect */
+  transition: box-shadow 0.3s; /* Add a transition for smooth effect */
+}
+
+nav a:hover:not(.active) {
+  color: white;
+  background-color: #424748;
+  border-bottom: 2px solid #000000;
+}
+
+nav > a.active {
+  color: white;
+  cursor: default;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Container styles (flexbox) */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 
+/* Add vertical separation between table headers */
+table th {
+  padding-right: 10px;
+  padding-left: 10px;
+}
 
+/* Add vertical separation between table cells */
+table td {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+
+/* Left column styles */
+.left-column {
+  flex: 1; /* Take up the available space */
+}
+
+/* Right column styles */
+.right-column {
+  flex: 1; /* Take up the available space */
+}
+
+/* New section styles */
+.new-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Banner styles */
+section.banner {
+  background-color: #ccc;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: #fff;
+}
+
+.banner-image {
+  width: 100%; /* Image will take up the whole width of its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Player activity and adventure log styles */
+.recent-activity,
+.recent-logs {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Global heading styles */
+h1, h2 {
+  margin: 0;
+}
+
+/* Global list styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Global list item styles */
+li {
+  margin-bottom: 10px;
+}
+
+/* Global image styles */
+img {
+  width: 34px;
+  object-fit: contain;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1; /* Take up the remaining space */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Add CSS styles for the button */
+.add-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-button a {
+  padding: 10px 20px;
+  background-color: #75A6F0;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.add-button a:hover {
+  background-color: #424748;
+}
+
+/* Login button styles */
 .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 34px;
-  }
-  
-  .login img {
-    height: 30px;
-  }
-  
-  .review-user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .review-user img {
-    border-radius: 50%;
-    height: 40px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
 
-  .nav-item {
-    margin-left: auto;
-  }
-  
+.login img {
+  height: 30px;
+}
+
+/* Review user styles */
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+/* Navigation item styles */
+.nav-item {
+  margin-left: auto;
+}
+
+.aquila{
+  transform: scale(2);
+}

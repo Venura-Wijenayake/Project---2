@@ -1,0 +1,157 @@
+<% title = 'Add Character'; %>
+<%- include('../partials/header') %>
+
+<style>
+  /* Custom styles for the two-column layout */
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-column {
+    flex-basis: 48%;
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 20px; /* Add indentation (tab space) for the two rows */
+  }
+
+  .form-column label,
+  .form-column input,
+  .form-column textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .form-column {
+      flex-basis: 100%; 
+    }
+  }
+</style>
+
+<form id="new-form" action="/characters" method="POST">
+  <div class="form-container">
+    <!-- First Column -->
+    <div class="form-column">
+      <!-- Name -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <!-- Player Name -->
+      <label for="playerName">Player Name:</label>
+      <input type="text" id="playerName" name="playerName" required>
+
+      <!-- Career Path -->
+      <label for="careerPath">Career Path:</label>
+      <input type="text" id="careerPath" name="careerPath" required>
+
+      <!-- Rank -->
+      <label for="rank">Rank:</label>
+      <input type="number" id="rank" name="rank" required>
+
+      <!-- Homeworld -->
+      <label for="homeworld">Homeworld:</label>
+      <input type="text" id="homeworld" name="homeworld" required>
+
+      <!-- Motivation -->
+      <label for="motivation">Motivation:</label>
+      <input type="text" id="motivation" name="motivation" required>
+
+      <!-- Description -->
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+    </div>
+
+    <!-- Second Column -->
+    <div class="form-column">
+      <!-- Weapon Skill -->
+      <label for="weaponSkill">Weapon Skill:</label>
+      <input type="number" id="weaponSkill" name="weaponSkill" required>
+
+      <!-- Ballistic Skill -->
+      <label for="ballisticSkill">Ballistic Skill:</label>
+      <input type="number" id="ballisticSkill" name="ballisticSkill" required>
+
+      <!-- Strength -->
+      <label for="strength">Strength:</label>
+      <input type="number" id="strength" name="strength" required>
+
+      <!-- Toughness -->
+      <label for="toughness">Toughness:</label>
+      <input type="number" id="toughness" name="toughness" required>
+
+      <!-- Agility -->
+      <label for="agility">Agility:</label>
+      <input type="number" id="agility" name="agility" required>
+
+      <!-- Intelligence -->
+      <label for="intelligence">Intelligence:</label>
+      <input type="number" id="intelligence" name="intelligence" required>
+
+      <!-- Perception -->
+      <label for="perception">Perception:</label>
+      <input type="number" id="perception" name="perception" required>
+
+      <!-- Will Power -->
+      <label for="willPower">Will Power:</label>
+      <input type="number" id="willPower" name="willPower" required>
+
+      <!-- Fellowship -->
+      <label for="fellowship">Fellowship:</label>
+      <input type="number" id="fellowship" name="fellowship" required>
+
+      <!-- Talents & Traits -->
+      <label for="talentsAndTraits">Talents & Traits:</label>
+      <textarea id="talentsAndTraits" name="talentsAndTraits" required></textarea>
+
+      <!-- Special Abilities -->
+      <label for="specialAbilities">Special Abilities:</label>
+      <textarea id="specialAbilities" name="specialAbilities" required></textarea>
+
+      <!-- Psychic Disciplines -->
+      <label for="psychicDisciplines">Psychic Disciplines:</label>
+      <textarea id="psychicDisciplines" name="psychicDisciplines" required></textarea>
+
+      <!-- Psychic Techniques -->
+      <label for="psychicTechniques">Psychic Techniques:</label>
+      <textarea id="psychicTechniques" name="psychicTechniques" required></textarea>
+    </div>
+  </div>
+
+  <!-- First Row -->
+  <div class="form-row">
+    <!-- Starting Profit Factor -->
+    <label for="startingProfitFactor">Starting Profit Factor:</label>
+    <input type="number" id="startingProfitFactor" name="startingProfitFactor" required>
+
+    <!-- Current Profit Factor -->
+    <label for="currentProfitFactor">Current Profit Factor:</label>
+    <input type="number" id="currentProfitFactor" name="currentProfitFactor" required>
+  </div>
+
+  <!-- Second Row -->
+  <div class="form-row">
+    <!-- Misfortunes -->
+    <label for="misfortunes">Misfortunes:</label>
+    <input type="number" id="misfortunes" name="misfortunes" required>
+
+    <!-- Exp Points To Spend -->
+    <label for="experiencePointsToSpend">Exp Points To Spend:</label>
+    <input type="number" id="experiencePointsToSpend" name="experiencePointsToSpend" required>
+
+    <!-- Exp Points Spent -->
+    <label for="experiencePointsSpent">Exp Points Spent:</label>
+    <input type="number" id="experiencePointsSpent" name="experiencePointsSpent" required>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit">Save Character</button>
+</form>
+
+<%- include('../partials/footer') %>

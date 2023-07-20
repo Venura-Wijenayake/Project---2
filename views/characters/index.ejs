@@ -1,0 +1,126 @@
+<%- include('../partials/header') %>
+
+<body>
+  <main class="container">
+    <h1><strong>Characters Page</strong></h1>
+    <!-- Add your content for the characters page here -->
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;|&nbsp;</td>
+          <th>Player Name</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Career Path</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Rank</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Homeworld</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Motivation</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Description</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Weapon Skill</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Ballistic Skill</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Strength</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Toughness</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Agility</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Intelligence</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Perception</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Will Power</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Fellowship</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Talents & Traits</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Special Abilities</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Psychic Disciplines</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Psychic Techniques</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Starting Profit Factor</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Current Profit Factor</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Misfortunes</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Exp Points To Spend</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Exp Points Spent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% characters.forEach(character => { %>
+          <tr>
+            <td><%= character.name %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.playerName %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.careerPath %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.rank %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.homeworld %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.motivation %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.description %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.weaponSkill %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.ballisticSkill %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.strength %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.toughness %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.agility %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.intelligence %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.perception %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.willPower %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.fellowship %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.talentsAndTraits %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.specialAbilities %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.psychicDisciplines %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.psychicTechniques %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.startingProfitFactor %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.currentProfitFactor %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.misfortunes %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.experiencePointsToSpend %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= character.experiencePointsSpent %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <!-- Button at the center bottom of the page -->
+    <div class="add-button">
+      <a href="/characters/new" <% if (title === 'ADD CHRACTER') { %>class="active"<% } %>><strong>ADD Character</strong></a>
+    </div>
+  </main>
+</body>
+
+<%- include('../partials/footer') %>
