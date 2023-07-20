@@ -74,7 +74,7 @@
             <td>&nbsp;|&nbsp;</td>
             <td><%= character.motivation %></td>
             <td>&nbsp;|&nbsp;</td>
-            <td><%= character.description %></td>
+            <td><pre><%= character.description %></pre></td>
             <td>&nbsp;|&nbsp;</td>
             <td><%= character.weaponSkill %></td>
             <td>&nbsp;|&nbsp;</td>
@@ -118,7 +118,7 @@
 
     <!-- Button at the center bottom of the page -->
     <div class="add-button">
-      <a href="/characters/new" <% if (title === 'ADD CHRACTER') { %>class="active"<% } %>><strong>ADD Character</strong></a>
+      <a href="/characters/new" <% if (title === 'ADD CHARACTER') { %>class="active"<% } %>><strong>ADD Character</strong></a>
     </div>
   </main>
 </body>

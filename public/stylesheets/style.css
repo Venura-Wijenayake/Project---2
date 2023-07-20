@@ -82,6 +82,12 @@ nav ul li a {
 }
 
 
+.characters-container {
+  max-width: 100%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+
 /* Add vertical separation between table headers */
 table th {
   padding-right: 10px;

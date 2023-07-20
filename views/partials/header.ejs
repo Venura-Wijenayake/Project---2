@@ -15,5 +15,10 @@
 </head>
 <body>
     <%- include('./navbar') %>
-    <main class="container">
+    <% if (title === 'All Characters') { %>
+      <main class="container characters-container">
         <div class="row">
+    <% } else { %>
+      <main class="container">
+        <div class="row">
+    <% } %>
