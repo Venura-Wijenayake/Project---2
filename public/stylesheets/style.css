@@ -250,3 +250,35 @@ img {
     flex-basis: 100%; 
   }
 }
+
+.location-card {
+  border-bottom: 1px solid #ccc; /* Add a border-bottom to each location card */
+  padding-bottom: 10px; /* Add some padding at the bottom of each location card */
+}
+
+.location-separator {
+  display: none; /* Hide the <hr> separator */
+}
+
+.separator-row {
+  height: 20px; /* Adjust this value to control the vertical separation height */
+}
+
+.headerContainer {
+  align-self: flex-start; /* Align to the top of the container */
+}
+
+.character-info,
+.attributes,
+.talents-traits,
+.special-abilities,
+.psychic-disciplines,
+.psychic-techniques,
+.profit-factor,
+.experience-points {
+  flex: 1 1 300px;
+}
+
+.back-button {
+  margin-bottom: 20px;
+}

@@ -1,10 +1,41 @@
 <%- include('../partials/header') %>
 
-<body>
-  <main class="container">
-    <h1><strong>Locations Page</strong></h1>
-    <!-- Add your content for the characters page here -->
-  </main>
+<main class="container">
+  <h1><strong>Locations Index</strong></h1>
+  <!-- Add your content for the items page here -->
 
-</body>
+  <table>
+    <thead>
+      <tr>
+        <th>Location</th>
+        <td>&nbsp;|&nbsp;</td>
+        <th>Description</th>
+        <td>&nbsp;|&nbsp;</td>
+        <th>Opportunities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% locations.forEach((location, index) => { %>
+        <tr>
+          <td><%= location.name %></td>
+          <td>&nbsp;|&nbsp;</td>
+          <td><%= location.description %></td>
+          <td>&nbsp;|&nbsp;</td>
+          <td><%= location.opportunities %></td>
+        </tr>
+        <% if (index !== locations.length - 1) { %>
+          <tr class="separator-row">
+            <td colspan="5">&nbsp;</td>
+          </tr>
+        <% } %>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <!-- Button at the center bottom of the page -->
+  <div class="add-button">
+    <a href="/locations/new" <% if (title === 'Add Location') { %>class="active"<% } %>><strong>ADD Location</strong></a>
+  </div>
+</main>
+
 <%- include('../partials/footer') %>

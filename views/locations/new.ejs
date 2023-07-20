@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<main class="container">
+  <h1><strong>Add New Location</strong></h1>
+  <form id="new-form" action="/locations" method="POST">
+    <div class="form-container">
+      <!-- First Column -->
+      <div class="form-column">
+        <!-- Location Name -->
+        <label for="name">Location Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Location Description -->
+        <label for="description">Location Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+
+      <!-- Second Column -->
+      <div class="form-column">
+        <!-- Opportunities -->
+        <label for="opportunities">Opportunities:</label>
+        <textarea id="opportunities" name="opportunities"></textarea>
+      </div>
+    </div>
+    <hr class="location-separator"> <!-- Vertical separation line -->
+    <!-- Submit Button -->
+    <button type="submit">Add Location</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

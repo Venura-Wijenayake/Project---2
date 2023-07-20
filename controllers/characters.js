@@ -2,6 +2,7 @@ const Character = require('../models/character');
 
 module.exports = {
     index,
+    show,
     new: newCharacter,
     create,
   };
@@ -9,6 +10,22 @@ module.exports = {
   async function index(req, res) {
     const characters = await Character.find({});
     res.render('characters/index', { title: 'All Characters', characters });
+  }
+
+  async function show(req, res, next) {
+    try {
+      const character = await Character.findById(req.params.id).exec();
+      if (!character) {
+        return res.redirect('/characters');
+      }
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      // const tickets = await Ticket.find({ flight: flight._id }).exec();
+  
+      res.render('characters/show', { character, title: 'Character Details' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server Error');
+    }
   }
 
 

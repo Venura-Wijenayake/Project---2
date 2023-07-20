@@ -1,0 +1,103 @@
+<%- include('../partials/header') %>
+
+<main class="container">
+    <div class="back-button">
+        <a href="/characters" class="btn btn-primary">Back to Character Index</a>
+    </div>
+    <h1 class="headerContainer">Character Details</h1>
+
+  <div class="character-info">
+    <h2><strong><%= character.name %></strong></h2>
+    <p><strong>Player Name:</strong> <%= character.playerName %></p>
+    <p><strong>Career Path:</strong> <%= character.careerPath %></p>
+    <p><strong>Rank:</strong> <%= character.rank %></p>
+    <p><strong>Homeworld:</strong> <%= character.homeworld %></p>
+    <p><strong>Motivation:</strong> <%= character.motivation %></p>
+    <p><strong>Description:</strong> <%= character.description %></p>
+  </div>
+
+  <div class="attributes">
+    <h3>Attributes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Weapon Skill</th>
+          <th>Ballistic Skill</th>
+          <th>Strength</th>
+          <th>Toughness</th>
+          <th>Agility</th>
+          <th>Intelligence</th>
+          <th>Perception</th>
+          <th>Will Power</th>
+          <th>Fellowship</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= character.weaponSkill %></td>
+          <td><%= character.ballisticSkill %></td>
+          <td><%= character.strength %></td>
+          <td><%= character.toughness %></td>
+          <td><%= character.agility %></td>
+          <td><%= character.intelligence %></td>
+          <td><%= character.perception %></td>
+          <td><%= character.willPower %></td>
+          <td><%= character.fellowship %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="talents-traits">
+    <h3>Talents & Traits</h3>
+    <p><%= character.talentsAndTraits %></p>
+  </div>
+
+  <div class="special-abilities">
+    <h3>Special Abilities</h3>
+    <p><%= character.specialAbilities %></p>
+  </div>
+
+  <div class="psychic-disciplines">
+    <h3>Psychic Disciplines</h3>
+    <p><%= character.psychicDisciplines %></p>
+  </div>
+
+  <div class="psychic-techniques">
+    <h3>Psychic Techniques</h3>
+    <p><%= character.psychicTechniques %></p>
+  </div>
+
+  <div class="profit-factor">
+    <h3>Profit Factor</h3>
+    <p><strong>Starting Profit Factor:</strong> <%= character.startingProfitFactor %></p>
+    <p><strong>Current Profit Factor:</strong> <%= character.currentProfitFactor %></p>
+  </div>
+
+  <div class="experience-points">
+    <h3>Experience Points</h3>
+    <p><strong>Misfortunes:</strong> <%= character.misfortunes %></p>
+    <p><strong>Exp Points To Spend:</strong> <%= character.experiencePointsToSpend %></p>
+    <p><strong>Exp Points Spent:</strong> <%= character.experiencePointsSpent %></p>
+  </div>
+</main>
+
+<main class="container">
+  <h1 class="headerContainer">ADD ITEMS</h1>
+  <div class="add-items">
+    <!-- Your form or other content related to adding items goes here -->
+  </div>
+</main>
+<%- include('../partials/footer') %>
+
+
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+
+</style>
