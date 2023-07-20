@@ -219,3 +219,34 @@ img {
 .aquila{
   transform: scale(2);
 }
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-column {
+  flex-basis: 48%;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-left: 20px; /* Add indentation (tab space) for the two rows */
+}
+
+.form-column label,
+.form-column input,
+.form-column textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .form-column {
+    flex-basis: 100%; 
+  }
+}

@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
-const Schema = mongoose.Schema;
 
-
-const itemSchema = new Schema({
-    name: { type: String, required: true },
-    class: { type: String, required: true },
-}, {
-    timestamps: true
+const itemSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  class: { type: String, required: true },
+  isWeapon: { type: Boolean, default: true },
+  range: { type: String, required: function () { return this.isWeapon; } },
+  RoF: { type: String, required: function () { return this.isWeapon; } },
+  damage: { type: String, required: function () { return this.isWeapon; } },
+  pen: { type: Number, required: function () { return this.isWeapon; } },
+  clip: { type: String, required: function () { return this.isWeapon; } },
+  rld: { type: String, required: function () { return this.isWeapon; } },
+  special: { type: String, default: "None"},
+  kg: { type: Number, required: true },
+  availability: { type: String, required: true },
 });
-  
-  // Compile the schema into a model and export it
-  module.exports = mongoose.model('Item', itemSchema);
+
+const Item = mongoose.model('Item', itemSchema);
+
+module.exports = Item;

@@ -3,8 +3,72 @@
 <body>
   <main class="container">
     <h1><strong>Items Page</strong></h1>
-    <!-- Add your content for the characters page here -->
-  </main>
+    <!-- Add your content for the items page here -->
 
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;|&nbsp;</td>
+          <th>Class</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Is a Weapon</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Range</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>RoF</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Damage</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Pen</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Clip</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Rld</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Special</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>kg</th>
+          <th>&nbsp;|&nbsp;</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.forEach(item => { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.class %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.isWeapon ? 'Yes' : 'No' %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.range %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.RoF %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.damage %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.pen %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.clip %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.rld %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.special %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.kg %></td>
+            <td>&nbsp;|&nbsp;</td>
+            <td><%= item.availability %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <!-- Button at the center bottom of the page -->
+    <div class="add-button">
+      <a href="/items/new" <% if (title === 'Add Item') { %>class="active"<% } %>><strong>ADD Item</strong></a>
+    </div>
+  </main>
 </body>
+
 <%- include('../partials/footer') %>

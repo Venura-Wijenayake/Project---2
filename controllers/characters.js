@@ -20,9 +20,10 @@ module.exports = {
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key];
     }
+
+    const character = new Character(req.body);
     try {
-      // Update this line because now we need the _id of the new character
-      const character = await Character.create(req.body);
+      await character.save()
       res.redirect(`/characters`);
     } catch (err) {
       // Typically some sort of validation error
