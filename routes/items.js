@@ -13,8 +13,10 @@ router.post('/', itemsCtrl.create);
 // POST route to add an item to a character's itemsHeld array
 router.post('/characters/:id/items', itemsCtrl.addToItemsHeld);
 
+
 // DELETE /characters/:characterId/items/:itemId
-router.delete('/characters/:characterId/items/:itemId', itemsCtrl.removeFromItemsHeld);
+router.delete('/characters/:characterId/items/:itemId', itemsCtrl.deleteItemsHeld); 
+
 
 
 module.exports = router;

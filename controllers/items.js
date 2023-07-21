@@ -6,7 +6,7 @@ module.exports = {
   new: newItem,
   create,
   addToItemsHeld,
-  removeFromItemsHeld, 
+  deleteItemsHeld,
 };
 
 
@@ -50,11 +50,12 @@ module.exports = {
   }
 
   // Function to remove an item from a character's itemsHeld array
-async function removeFromItemsHeld(req, res) {
+async function deleteItemsHeld(req, res) {
   try {
     const character = await Character.findById(req.params.characterId);
     
     if (!character) {
+      
       return res.status(404).send('Character not found.');
     }
 

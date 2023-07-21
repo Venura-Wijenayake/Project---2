@@ -1,5 +1,6 @@
 const Character = require('../models/character');
 const Item = require('../models/item');
+const Locations = require('../models/location')
 
 module.exports = {
     index,
@@ -16,6 +17,7 @@ module.exports = {
   async function show(req, res, next) {
     try {
       const items = await Item.find({});
+      const locations = await Locations.find({});
       const character = await Character.findById(req.params.id).exec();
       if (!character) {
         return res.redirect('/characters');
@@ -23,7 +25,7 @@ module.exports = {
       // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       // const tickets = await Ticket.find({ flight: flight._id }).exec();
   
-      res.render('characters/show', { character, items, title: 'Character Details' });
+      res.render('characters/show', { character, items, locations, title: 'Character Details' });
     } catch (error) {
       console.error(error);
       res.status(500).send('Server Error');

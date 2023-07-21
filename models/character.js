@@ -31,6 +31,7 @@ const characterSchema = new Schema({
   experiencePointsSpent: { type: Number, required: true },
 
   itemsHeld: [String],
+  locationHeld: [String],
 }, {
   timestamps: true
 });

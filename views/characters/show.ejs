@@ -83,46 +83,79 @@
 </main>
 
 <main class="container">
+  <section class="add-items-section">
     <h1 class="headerContainer">ADD ITEMS</h1>
-    <div class="add-items">
-
-        <!-- add to cast form below this comment -->
-        <form id="add-per-to-cast" action="/items/characters/<%= character._id %>/items" method="POST">
-          <select name="itemId">
+    <form id="add-per-to-cast" action="/items/characters/<%= character._id %>/items" method="POST">
+      <div class="add-items-form">
+        <select name="itemId">
           <!-- Emit an option for each item -->
           <% items.forEach(item => { %>
-              <option value="<%= item._id %>"><%= item.name %></option>
+            <option value="<%= item._id %>"><%= item.name %></option>
           <% }); %>
-          </select>
-          <button type="submit">Add to Items</button>
-        </form>
-    </div>
-      <!-- Display added items here -->
-      <div class="added-items">
-        <h3>Added Items:</h3>
-        <ul>
-          <% character.itemsHeld.forEach(itemId => { %>
-            <% const item = items.find(item => item._id.toString() === itemId.toString()); %>
-            <% if (item) { %>
-              <li><%= item.name %></li>
-              <form action="/characters/<%= character._id %>/items/<%= item._id %>?_method=DELETE" method="POST">
+        </select>
+        <button type="submit">Add to Items</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ADDED ITEMS section -->
+  <section class="added-items-section">
+    <div class="added-items">
+      <h3>Added Items:</h3>
+      <div class="added-items-grid">
+        <% character.itemsHeld.forEach(itemId => { %>
+          <% const item = items.find(item => item._id.toString() === itemId.toString()); %>
+          <% if (item) { %>
+            <div class="added-item">
+              <span><%= item.name %></span>
+              <form action="/items/characters/<%= character._id %>/items/<%= item._id %>?_method=DELETE" method="POST">
                 <button type="submit">Remove</button>
               </form>
-            <% } %>
-          <% }); %>
-        </ul>
+            </div>
+          <% } %>
+        <% }); %>
       </div>
-  </main>
+    </div>
+  </section>
+</main>
+
+<!-- CURRENT LOCATION section -->
+<!-- CURRENT LOCATION section -->
+<main class="container">
+  <section class="add-items-section">
+    <h1 class="headerContainer">SET LOCATION:</h1>
+    <form id="add-per-to-cast" action="/locations/characters/<%= character._id %>/locations" method="POST">
+      <div class="add-items-form">
+        <select name="locationId">
+          <!-- Emit an option for each location -->
+          <% locations.forEach(location => { %>
+            <option value="<%= location._id %>"><%= location.name %></option>
+          <% }); %>
+        </select>
+        <button type="submit">Add Location</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="added-items-section">
+    <div class="added-items">
+      <h3>Current Location:</h3>
+      <div class="added-items-grid">
+        <% character.locationHeld.forEach(locationId => { %>
+          <% const location = locations.find(location => location._id.toString() === locationId.toString()); %>
+          <% if (location) { %>
+            <div class="added-item">
+              <span class="centered"><%= location.name %></span>
+              <form action="/locations/characters/<%= character._id %>/locations/<%= location._id %>?_method=DELETE" method="POST">
+                <button type="submit">Remove</button>
+              </form>
+            </div>
+          <% } %>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+</main>
+
 <%- include('../partials/footer') %>
 
-
-
-<style>
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-
-</style>

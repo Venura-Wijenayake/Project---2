@@ -282,3 +282,85 @@ img {
 .back-button {
   margin-bottom: 20px;
 }
+
+
+
+  /* ... other styles ... */
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .add-items-section,
+  .added-items-section {
+    flex-basis: 50%;
+  }
+
+  /* Style for the ADD ITEMS header */
+  .headerContainer {
+    text-align: center;
+  }
+
+  /* Style for the add-items form */
+  .add-items-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Style for the add items button */
+  .add-items-form button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Style for the dropdown */
+  .add-items-form select {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Style for the added-items list */
+  .added-items ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Style for the added-items grid */
+  .added-items-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Style for each added item */
+  .added-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Style for the remove button */
+  .added-item button {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .current-location-section{
+    padding: 25px;
+  }
