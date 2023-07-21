@@ -4,11 +4,11 @@ const charactersCtrl = require('../controllers/characters');
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET /characters
-router.get('/', ensureLoggedIn, charactersCtrl.index);
+router.get('/',  charactersCtrl.index);
 // GET /characters/new
 router.get('/new', ensureLoggedIn, charactersCtrl.new);
 // GET /characters/:id (show functionality) MUST be below new route
-router.get('/:id', ensureLoggedIn, charactersCtrl.show);
+router.get('/:id', charactersCtrl.show);
 // POST /characters
 router.post('/', ensureLoggedIn, charactersCtrl.create);
 // PUT /characters/:id

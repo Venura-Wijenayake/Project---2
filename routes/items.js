@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const itemsCtrl = require('../controllers/items');
+const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET /items
 router.get('/', itemsCtrl.index);
@@ -11,11 +12,11 @@ router.get('/new', itemsCtrl.new);
 router.post('/', itemsCtrl.create);
 
 // POST route to add an item to a character's itemsHeld array
-router.post('/characters/:id/items', itemsCtrl.addToItemsHeld);
+router.post('/characters/:id/items',  ensureLoggedIn, itemsCtrl.addToItemsHeld);
 
 
 // DELETE /characters/:characterId/items/:itemId
-router.delete('/characters/:characterId/items/:itemId', itemsCtrl.deleteItemsHeld); 
+router.delete('/characters/:characterId/items/:itemId', ensureLoggedIn, itemsCtrl.deleteItemsHeld); 
 
 
 
