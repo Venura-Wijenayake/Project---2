@@ -1,9 +1,12 @@
 const Item = require('../models/item');
+const Character = require('../models/character');
 
 module.exports = {
   index,
   new: newItem,
   create,
+  addToItemsHeld,
+  removeFromItemsHeld, 
 };
 
 
@@ -37,3 +40,39 @@ module.exports = {
       res.render('items/new', {title: 'All Item', errorMsg: err.message });
     }
   }
+
+  async function addToItemsHeld(req, res) {
+    const character = await Character.findById(req.params.id);
+    // The itemsHeld array holds the items's ObjectId (referencing)
+    character.itemsHeld.push(req.body.itemId);
+    await character.save();
+    res.redirect(`/characters/${character._id}`);
+  }
+
+  // Function to remove an item from a character's itemsHeld array
+async function removeFromItemsHeld(req, res) {
+  try {
+    const character = await Character.findById(req.params.characterId);
+    
+    if (!character) {
+      return res.status(404).send('Character not found.');
+    }
+
+    // Find the index of the item in the itemsHeld array
+    const itemIndex = character.itemsHeld.indexOf(req.params.itemId);
+
+    if (itemIndex === -1) {
+      return res.status(404).send('Item not found in character\'s itemsHeld.');
+    }
+
+    // Remove the item from the itemsHeld array
+    character.itemsHeld.splice(itemIndex, 1);
+    await character.save();
+
+    // Redirect back to the character's show page
+    res.redirect(`/characters/${character._id}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+}

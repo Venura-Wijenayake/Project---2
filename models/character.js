@@ -29,6 +29,8 @@ const characterSchema = new Schema({
   misfortunes: { type: Number, required: true },
   experiencePointsToSpend: { type: Number, required: true },
   experiencePointsSpent: { type: Number, required: true },
+
+  itemsHeld: [String],
 }, {
   timestamps: true
 });

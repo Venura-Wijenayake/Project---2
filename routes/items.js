@@ -10,4 +10,11 @@ router.get('/new', itemsCtrl.new);
 // POST /items
 router.post('/', itemsCtrl.create);
 
+// POST route to add an item to a character's itemsHeld array
+router.post('/characters/:id/items', itemsCtrl.addToItemsHeld);
+
+// DELETE /characters/:characterId/items/:itemId
+router.delete('/characters/:characterId/items/:itemId', itemsCtrl.removeFromItemsHeld);
+
+
 module.exports = router;
