@@ -139,7 +139,7 @@
 <!-- CURRENT LOCATION section -->
 <main class="container">
   <section class="add-items-section">
-    <h1 class="headerContainer">SET LOCATION:</h1>
+    <h1 class="headerContainer">LOCATIONS ACQUIRED:</h1>
     <form id="add-per-to-cast" action="/locations/characters/<%= character._id %>/locations" method="POST">
       <div class="add-items-form">
         <select name="locationId">
@@ -155,7 +155,7 @@
 
   <section class="added-items-section">
     <div class="added-items">
-      <h3>Current Location:</h3>
+      <h3>Add Location:</h3>
       <div class="added-items-grid">
         <% character.locationHeld.forEach(locationId => { %>
           <% const location = locations.find(location => location._id.toString() === locationId.toString()); %>

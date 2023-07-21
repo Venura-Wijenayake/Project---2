@@ -1,21 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const charactersCtrl = require('../controllers/characters');
+const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET /characters
-router.get('/', charactersCtrl.index);
+router.get('/', ensureLoggedIn, charactersCtrl.index);
 // GET /characters/new
-router.get('/new', charactersCtrl.new);
+router.get('/new', ensureLoggedIn, charactersCtrl.new);
 // GET /characters/:id (show functionality) MUST be below new route
-router.get('/:id', charactersCtrl.show);
+router.get('/:id', ensureLoggedIn, charactersCtrl.show);
 // POST /characters
-router.post('/', charactersCtrl.create);
+router.post('/', ensureLoggedIn, charactersCtrl.create);
 // PUT /characters/:id
-router.put('/:id', charactersCtrl.update);
+router.put('/:id', ensureLoggedIn, charactersCtrl.update);
 // GET /characters/:id/edit
-router.get('/:id/edit', charactersCtrl.edit);
+router.get('/:id/edit', ensureLoggedIn, charactersCtrl.edit);
 // DELETE /characters/:id
-router.delete('/:id', charactersCtrl.delete);
+router.delete('/:id', ensureLoggedIn, charactersCtrl.delete);
 
 
 module.exports = router;
