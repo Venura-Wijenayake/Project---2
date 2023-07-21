@@ -4,7 +4,7 @@
  
   
   <main class="container">
-    <h1><strong>Rogue Trader</strong></h1>
+    <h1><strong>Rogue Trader - Campain Manager</strong></h1>
 
     <img src="/images/ex_RT_Vessel.jpg" alt="Banner Image" class="banner-image">
 
@@ -58,6 +58,12 @@
     </div>
 
     <div class="right-column">
+
+      <% if (user) { %>
+        <img src="/images/BigE.jpg" alt="BigE Image" class="login-image">
+      <% } else { %>
+        <img src="/images/Dinner.jpg" alt="Necro Image" class="login-image">
+      <% } %>
       <section class="recent-activity">
         <h2>Announcments</h2>
         <ul id="activity-list">

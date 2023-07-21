@@ -384,4 +384,13 @@ img {
   transform: translateY(-1px); /* Add a slight upward lift on hover */
 }
 
+.login-image{
+  padding: 25px;
+  width: 100%;
+  height: auto;
+}
 
+.container {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
