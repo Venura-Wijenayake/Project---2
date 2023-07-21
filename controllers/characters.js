@@ -7,6 +7,9 @@ module.exports = {
     show,
     new: newCharacter,
     create,
+    update,
+    edit,
+    delete: deleteCharacter,
   };
 
   async function index(req, res) {
@@ -50,5 +53,75 @@ module.exports = {
       // Typically some sort of validation error
       console.log(err);
       res.render('characters/new', { errorMsg: err.message });
+    }
+  }
+
+  async function update(req, res) {
+    try {
+      const characterId = req.params.id;
+      const updates = req.body; // Assuming req.body contains the updated fields
+  
+      // Use findOneAndUpdate to update the character by its ID
+      const updatedCharacter = await Character.findOneAndUpdate(
+        { _id: characterId },
+        updates,
+        { new: true } // Return the updated document after the update
+      );
+  
+      if (!updatedCharacter) {
+        return res.status(404).json({ error: 'Character not found' });
+      }
+  
+      // Optionally, you can redirect to the character's show page after successful update
+      res.redirect(`/characters/${characterId}`);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server Error' });
+    }
+  }
+
+  // Other functions for index, create, delete, etc. (if you have any)
+  
+  async function edit(req, res) {
+    try {
+      const characterId = req.params.id;
+  
+      // Find the character by its ID
+      const character = await Character.findById(characterId);
+  
+      if (!character) {
+        return res.status(404).json({ error: 'Character not found' });
+      }
+  
+      // Render the edit.ejs page with the character data for updating
+      res.render('characters/edit', {
+        title: 'Update Character',
+        character: character,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server Error' });
+    }
+  }
+
+  async function deleteCharacter(req, res) {
+    try {
+      const characterId = req.params.id;
+  
+      // Find the character by its ID
+      const character = await Character.findById(characterId);
+  
+      if (!character) {
+        return res.status(404).json({ error: 'Character not found' });
+      }
+  
+      // Delete the character from the database
+      await Character.findByIdAndRemove(characterId);
+  
+      // Redirect back to the index page after successful deletion
+      res.redirect('/characters');
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server Error' });
     }
   }

@@ -114,6 +114,9 @@
             <td>&nbsp;|&nbsp;</td>
             <td>
               <a href="/characters/<%= character._id %>" class="btn btn-primary">Details</a>
+              <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="delete-button">Delete Character</button>
+              </form>
             </td>
           </tr>
         <% }); %>
@@ -137,7 +140,7 @@
     /* Common button styles */
     padding: 8px 16px;
     background-color: #E3D465;
-    color: #fff;
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;

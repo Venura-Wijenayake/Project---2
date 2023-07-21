@@ -10,6 +10,12 @@ router.get('/new', charactersCtrl.new);
 router.get('/:id', charactersCtrl.show);
 // POST /characters
 router.post('/', charactersCtrl.create);
+// PUT /characters/:id
+router.put('/:id', charactersCtrl.update);
+// GET /characters/:id/edit
+router.get('/:id/edit', charactersCtrl.edit);
+// DELETE /characters/:id
+router.delete('/:id', charactersCtrl.delete);
 
 
 module.exports = router;

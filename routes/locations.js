@@ -17,5 +17,7 @@ router.post('/characters/:id/locations', locationsCtrl.addTolocationHeld);
 router.delete('/characters/:characterId/locations/:locationId', locationsCtrl.deletelocationHeld); 
 
 
+
+
 module.exports = router;
 	

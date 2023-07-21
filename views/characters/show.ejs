@@ -1,85 +1,101 @@
 <%- include('../partials/header') %>
 
 <main class="container">
-    <div class="back-button">
-        <a href="/characters" class="btn btn-primary">Back to Character Index</a>
+  <h1 class="headerContainer">Character Details</h1>
+
+  <form action="/characters/<%= character._id %>?_method=PUT" method="POST" class="edit-form">
+    <div class="character-info">
+      <h2><strong><%= character.name %></strong></h2>
+      <p><strong>Player Name:</strong> <%= character.playerName %></p>
+      <p><strong>Career Path:</strong> <%= character.careerPath %></p>
+      <div class="form-group">
+        <label for="rank"><strong>Rank:</strong></label>
+        <input type="text" id="rank" name="rank" value="<%= character.rank %>" required>
+      </div>
+      <p><strong>Homeworld:</strong> <%= character.homeworld %></p>
+      <p><strong>Motivation:</strong> <%= character.motivation %></p>
+      <div class="form-group">
+        <label for="description"><strong>Description</strong></label>
+        <textarea id="description" name="description" required><%= character.description %></textarea>
+      </div>
     </div>
-    <h1 class="headerContainer">Character Details</h1>
 
-  <div class="character-info">
-    <h2><strong><%= character.name %></strong></h2>
-    <p><strong>Player Name:</strong> <%= character.playerName %></p>
-    <p><strong>Career Path:</strong> <%= character.careerPath %></p>
-    <p><strong>Rank:</strong> <%= character.rank %></p>
-    <p><strong>Homeworld:</strong> <%= character.homeworld %></p>
-    <p><strong>Motivation:</strong> <%= character.motivation %></p>
-    <p><strong>Description:</strong> <%= character.description %></p>
-  </div>
+    <div class="form-row"> <!-- New div for attributes in a row -->
+      <div class="attributes">
+        <h3>Attributes</h3>
+        <div class="attribute-input">
+          <label for="weaponSkill">Weapon Skill</label>
+          <input type="number" id="weaponSkill" name="weaponSkill" value="<%= character.weaponSkill %>" required maxlength="3">
+        </div>
+        <div class="attribute-input">
+          <label for="ballisticSkill">Ballistic Skill</label>
+          <input type="number" id="ballisticSkill" name="ballisticSkill" value="<%= character.ballisticSkill %>" required maxlength="3">
+        </div>
+        <div class="attribute-input">
+          <label for="strength">Strength</label>
+          <input type="number" id="strength" name="strength" value="<%= character.strength %>" required maxlength="3">
+        </div>
+        <div class="attribute-input">
+          <label for="toughness">Toughness</label>
+          <input type="number" id="toughness" name="toughness" value="<%= character.toughness %>" required maxlength="3">
+        </div>
+        <div class="attribute-input">
+          <label for="agility">Agility</label>
+          <input type="number" id="agility" name="agility" value="<%= character.agility %>" required maxlength="3">
+        </div>
+        <div class="attribute-input">
+          <label for="intelligence">Intelligence</label>
+          <input type="number" id="intelligence" name="intelligence" value="<%= character.intelligence %>" required maxlength="3">
+        </div>
+      </div>
 
-  <div class="attributes">
-    <h3>Attributes</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Weapon Skill</th>
-          <th>Ballistic Skill</th>
-          <th>Strength</th>
-          <th>Toughness</th>
-          <th>Agility</th>
-          <th>Intelligence</th>
-          <th>Perception</th>
-          <th>Will Power</th>
-          <th>Fellowship</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= character.weaponSkill %></td>
-          <td><%= character.ballisticSkill %></td>
-          <td><%= character.strength %></td>
-          <td><%= character.toughness %></td>
-          <td><%= character.agility %></td>
-          <td><%= character.intelligence %></td>
-          <td><%= character.perception %></td>
-          <td><%= character.willPower %></td>
-          <td><%= character.fellowship %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <div class="grouped-elements"> <!-- Grouped elements div -->
+        <div class="form-group"> <!-- Form group for talents and traits -->
+          <h3>Talents & Traits</h3>
+          <textarea id="talentsAndTraits" name="talentsAndTraits" required><%= character.talentsAndTraits %></textarea>
+        </div>
 
-  <div class="talents-traits">
-    <h3>Talents & Traits</h3>
-    <p><%= character.talentsAndTraits %></p>
-  </div>
+        <div class="form-group"> <!-- Form group for special abilities -->
+          <h3>Special Abilities</h3>
+          <textarea id="specialAbilities" name="specialAbilities" required><%= character.specialAbilities %></textarea>
+        </div>
 
-  <div class="special-abilities">
-    <h3>Special Abilities</h3>
-    <p><%= character.specialAbilities %></p>
-  </div>
+        <div class="form-group"> <!-- Form group for psychic disciplines -->
+          <h3>Psychic Disciplines</h3>
+          <textarea id="psychicDisciplines" name="psychicDisciplines" required><%= character.psychicDisciplines %></textarea>
+        </div>
 
-  <div class="psychic-disciplines">
-    <h3>Psychic Disciplines</h3>
-    <p><%= character.psychicDisciplines %></p>
-  </div>
+        <div class="form-group"> <!-- Form group for psychic techniques -->
+          <h3>Psychic Techniques</h3>
+          <textarea id="psychicTechniques" name="psychicTechniques" required><%= character.psychicTechniques %></textarea>
+        </div>
+      </div>
+    </div>
 
-  <div class="psychic-techniques">
-    <h3>Psychic Techniques</h3>
-    <p><%= character.psychicTechniques %></p>
-  </div>
+      <div class="form-group profit-factor">
+        <h3>Profit Factor</h3>
+        <label for="startingProfitFactor">Starting Profit Factor</label>
+        <input type="number" id="startingProfitFactor" name="startingProfitFactor" value="<%= character.startingProfitFactor %>" required>
 
-  <div class="profit-factor">
-    <h3>Profit Factor</h3>
-    <p><strong>Starting Profit Factor:</strong> <%= character.startingProfitFactor %></p>
-    <p><strong>Current Profit Factor:</strong> <%= character.currentProfitFactor %></p>
-  </div>
+        <label for="currentProfitFactor">Current Profit Factor</label>
+        <input type="number" id="currentProfitFactor" name="currentProfitFactor" value="<%= character.currentProfitFactor %>" required>
 
-  <div class="experience-points">
-    <h3>Experience Points</h3>
-    <p><strong>Misfortunes:</strong> <%= character.misfortunes %></p>
-    <p><strong>Exp Points To Spend:</strong> <%= character.experiencePointsToSpend %></p>
-    <p><strong>Exp Points Spent:</strong> <%= character.experiencePointsSpent %></p>
-  </div>
+        <h3>Experience Points</h3>
+        <label for="misfortunes">Misfortunes</label>
+        <input type="number" id="misfortunes" name="misfortunes" value="<%= character.misfortunes %>" required>
+
+        <label for="experiencePointsToSpend">Exp Points To Spend</label>
+        <input type="number" id="experiencePointsToSpend" name="experiencePointsToSpend" value="<%= character.experiencePointsToSpend %>" required>
+
+        <label for="experiencePointsSpent">Exp Points Spent</label>
+        <input type="number" id="experiencePointsSpent" name="experiencePointsSpent" value="<%= character.experiencePointsSpent %>" required>
+      </div>
+
+    <div class="bottom-buttons"> <!-- New div for the buttons at the bottom -->
+      <button type="submit" class="btn btn-primary update-button">Update Character</button>
+      <a href="/characters" class="btn btn-primary">Back to Character Index</a>
+    </div>
+  </form>
 </main>
 
 <main class="container">
@@ -159,3 +175,92 @@
 
 <%- include('../partials/footer') %>
 
+
+<style>
+  .edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(101,184,167,0.5);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group,
+  .attribute-form-group {
+    flex: 1 1 300px;
+  }
+
+  .form-group label,
+  .attribute-form-group label {
+    display: block;
+    font-weight: bold;
+  }
+
+  .form-group input,
+  .attribute-form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea,
+  .attribute-form-group textarea {
+    resize: vertical;
+  }
+
+  .form-group button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .character-details {
+    flex: 1;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .attribute-input {
+    width: 150px;
+  }
+
+  .grouped-elements {
+    flex: 1;
+  }
+
+  .grouped-elements .form-group {
+    margin-bottom: 20px;
+  }
+
+  .bottom-buttons .btn {
+    flex: 1;
+  }
+
+
+  .form-group.profit-factor {
+    margin-top: -20px; /* Adjust the negative margin as needed to move it upward */
+  }
+
+  .bottom-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-top: 40px; /* Increase the top margin to create more space */
+    gap: 20px;
+  }
+
+  .bottom-buttons .btn {
+    flex: 1;
+  }
