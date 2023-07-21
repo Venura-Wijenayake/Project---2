@@ -17,6 +17,8 @@ The game's name, "Rogue Trader," refers to the player characters who take on the
 
 Link to Trello: https://trello.com/b/J1U6C0OB/project-2
 
+Link to website(nodemon): http://localhost:3000/
+
 ![game preview](https://i.imgur.com/kgpD5wM.jpeg)
 
 Made with: HTML/CSS/Javascript/Node.js/Express/MongoDB/Google oauth
