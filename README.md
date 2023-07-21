@@ -15,7 +15,7 @@ Rogue Trader is set in the far future of the 41st millennium, in a dystopian and
 
 The game's name, "Rogue Trader," refers to the player characters who take on the role of intrepid explorers, adventurers, and traders. These characters have been granted a Warrant of Trade by the Imperium of Man, giving them authority and independence to explore uncharted regions of space, establish colonies, and engage in trade beyond the established borders of the Imperium.
 
-![game preview](https://i.ibb.co/fr3kL2S/READMEPIC.jpg)
+![game preview](https://tinyurl.com/Peorko)
 
 Made with: HTML/CSS/Javascript/Node.js/Express/MongoDB/Google oauth
 
